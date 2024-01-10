@@ -1,0 +1,13 @@
+mas = [12, 0, 123, 0, 44, 0, 553, 0, 10, 0, 3]
+# Ответ: 2, 597
+
+max_sum = -234234
+cnt = 0
+
+for i in range(len(mas) - 2):
+    if (mas[i] + mas[i+2]) % 3 == 0 and mas[i] != 0:
+        cnt += 1
+        if mas[i] + mas[i+2] > max_sum:
+            max_sum = mas[i] + mas[i+2]
+
+print(cnt, max_sum)

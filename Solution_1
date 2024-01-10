@@ -1,0 +1,46 @@
+mas = [1, 10, 5, 3, 23425, 234, 234, 100, 44, 1, 2, 142, 2, 77]
+# 5 пар [(5,3), (100,44), (1,2), (2,142), (142,2)]
+# Минимальный элемент, делящийся на 7: 77
+# 144 > 77
+# Ответ: 5, 1
+
+min_del_7 = 2342342342
+
+for i in range(len(mas)):
+    if mas[i] % 7 == 0 and mas[i] < min_del_7:
+        min_del_7 = mas[i]
+
+def fib(sum_el):
+    fib1 = 1
+    fib2 = 1
+    fib_sum = 0
+    while fib_sum < sum_el:
+        fib_sum = fib1 + fib2
+        if fib_sum == sum_el:
+            return True
+            break
+        fib1 = fib2
+        fib2 = fib_sum
+    return False
+
+
+max_sum_el = 0
+cnt = 0
+
+for i in range(len(mas) - 1):
+    sum_el = mas[i] + mas[i+1]
+    if fib(sum_el):
+        if sum_el > max_sum_el:
+            max_sum_el = sum_el
+        cnt += 1
+
+print(cnt)
+
+if max_sum_el > min_del_7:
+    print(1)
+else:
+    print(0)
+
+
+
+
